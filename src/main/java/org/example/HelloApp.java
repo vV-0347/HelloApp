@@ -5,17 +5,24 @@ public class HelloApp {
 
         String output;
 
-        // Check if any arguments are provided
-        if (args.length > 0) {
-            // Join all names with comma and space
-            String names = String.join(", ", args);
-            output = "Hello, " + names + "!";
-        } else {
-            // Default case
+        // If no arguments → default
+        if (args.length == 0) {
             output = "Hello, World!";
+        } else {
+            // Build names using enhanced for loop
+            StringBuilder names = new StringBuilder();
+
+            for (String name : args) {
+                if (names.length() > 0) {
+                    names.append(", ");
+                }
+                names.append(name);
+            }
+
+            output = "Hello, " + names.toString() + "!";
         }
 
-        // Print final output
+        // Print result
         System.out.println(output);
     }
 }
