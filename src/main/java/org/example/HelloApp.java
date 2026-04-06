@@ -9,16 +9,8 @@ public class HelloApp {
         if (args.length == 0) {
             output = "Hello, World!";
         } else {
-            StringBuilder nameBuilder = new StringBuilder();
-
-            // Append all names with ", "
-            for (String name : args) {
-                nameBuilder.append(name).append(", ");
-            }
-
-            // Remove trailing ", "
-            String names = nameBuilder.substring(0, nameBuilder.length() - 2);
-
+            // Join all names with ", "
+            String names = String.join(", ", args);
             output = "Hello, " + names + "!";
         }
 
